@@ -42,7 +42,7 @@
 
     cursorSize = lib.mkOption {
       type = lib.types.int;
-      default = 24;
+      default = 50;
       description = "Cursor size in pixels";
     };
 

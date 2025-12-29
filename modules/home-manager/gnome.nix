@@ -11,7 +11,7 @@
         gtk-theme = "WhiteSur-Dark";
         icon-theme = "WhiteSur";
         cursor-theme = "capitaine-cursors";
-        cursor-size = 24;
+        cursor-size = 50;
         font-name = "Noto Sans 11";
         enable-animations = true;
       };
