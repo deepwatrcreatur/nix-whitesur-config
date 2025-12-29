@@ -27,12 +27,12 @@
     };
   };
 
+  imports = [
+    ./fonts.nix
+    ./gnome.nix
+  ];
+
   config = lib.mkIf config.whitesur.enable {
-    # Import submodules
-    imports = [
-      (lib.mkIf config.whitesur.fonts.enable ./fonts.nix)
-      (lib.mkIf config.whitesur.gnome.enable ./gnome.nix)
-    ];
 
     # Base packages for WhiteSur theming
     environment.systemPackages = with pkgs; [
