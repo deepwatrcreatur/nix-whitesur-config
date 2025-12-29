@@ -4,7 +4,33 @@
   options.whitesur = {
     enable = lib.mkEnableOption "WhiteSur macOS-like theming";
 
-    gnome.enable = lib.mkEnableOption "GNOME with WhiteSur theming" // { default = false; };
+    gnome = {
+      enable = lib.mkEnableOption "GNOME with WhiteSur theming" // { default = false; };
+
+      autoRepeatDelay = lib.mkOption {
+        type = lib.types.int;
+        default = 300;
+        description = "Keyboard autorepeat delay in milliseconds (useful for Proxmox guests)";
+      };
+
+      autoRepeatInterval = lib.mkOption {
+        type = lib.types.int;
+        default = 40;
+        description = "Keyboard autorepeat interval in milliseconds";
+      };
+
+      wayland = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "Enable Wayland for GNOME (required for GNOME 49+)";
+      };
+
+      user = lib.mkOption {
+        type = lib.types.str;
+        default = "";
+        description = "Username for auto-login (empty to disable)";
+      };
+    };
 
     fonts.enable = lib.mkEnableOption "WhiteSur fonts configuration" // { default = true; };
 
