@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 {
   options.whitesur = {
@@ -9,10 +9,10 @@
     gtk.enable = lib.mkEnableOption "GTK theme configuration" // { default = true; };
   };
 
-  config = lib.mkIf config.whitesur.enable {
-    imports = [
-      (lib.mkIf config.whitesur.gtk.enable ./gtk.nix)
-      (lib.mkIf config.whitesur.gnome.enable ./gnome.nix)
-    ];
-  };
+  imports = [
+    ./gtk.nix
+    ./gnome.nix
+  ];
+
+  config = lib.mkIf config.whitesur.enable {};
 }
